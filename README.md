@@ -17,5 +17,5 @@ git clone git@github.com:go-go-megaman/leet-code.git
 Install python and dependencies with Pipenv.
 
 ```bash
-pipenv install
+pipenv install --dev
 ```
