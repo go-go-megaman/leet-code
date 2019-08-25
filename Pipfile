@@ -16,3 +16,4 @@ python_version = "3.7"
 
 [scripts]
 flake8 = "flake8"
+test = "python -m unittest discover -v"
