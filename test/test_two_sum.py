@@ -8,7 +8,7 @@ class TestMainMethod(unittest.TestCase):
 
         actual = target.main([1, 3, 5, 9, 2], 6)
 
-        expected = [1, 5]
+        expected = [0, 2]
         self.assertListEqual(actual, expected)
 
     def test_does_not_exist_pair_their_sum_equal_to_the_target(self):
