@@ -3,7 +3,7 @@ from solutions._2_add_two_numbers import Solution, ListNode
 
 
 class TestMainMethod(unittest.TestCase):
-    def test_add_the_two_numbers_and_return_it_as_a_list_node(self):
+    def test_when_one_list_is_equals_to_the_other(self):
         target = Solution()
         test_node1 = self.createTestNode([2, 4, 3])
         test_node2 = self.createTestNode([5, 6, 4])
@@ -14,7 +14,7 @@ class TestMainMethod(unittest.TestCase):
         expected = [7, 0, 8]
         self.assertListEqual(actual, expected)
 
-    def test_add_two_numbers_with_different_digits(self):
+    def test_when_one_list_is_longer_than_the_other(self):
         target = Solution()
         test_node1 = self.createTestNode([2])
         test_node2 = self.createTestNode([5, 6, 4])
