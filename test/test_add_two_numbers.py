@@ -14,10 +14,20 @@ class TestMainMethod(unittest.TestCase):
         expected = [7, 0, 8]
         self.assertListEqual(actual, expected)
 
+    def test_add_two_numbers_with_different_digits(self):
+        target = Solution()
+        test_node1 = self.createTestNode([2])
+        test_node2 = self.createTestNode([5, 6, 4])
+
+        result = target.main(test_node1, test_node2)
+        actual = result.toList()
+
+        expected = [7, 6, 4]
+        self.assertListEqual(actual, expected)
+
     def createTestNode(self, numberList: [int]) -> ListNode:
-        result = current = ListNode(numberList[0])
+        first = current = ListNode(numberList[0])
         for number in numberList[1:]:
-            previous = current
-            current = ListNode(number)
-            previous.next = current
-        return result
+            current.next = ListNode(number)
+            current = current.next
+        return first

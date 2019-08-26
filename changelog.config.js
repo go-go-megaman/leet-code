@@ -10,7 +10,7 @@ module.exports = {
         "ci",
         "perf"
     ],
-    "maxMessageLength": 64,
+    "maxMessageLength": 128,
     "minMessageLength": 3,
     "questions": [
         "type",

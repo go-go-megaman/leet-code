@@ -14,22 +14,17 @@ class ListNode:
 
 class Solution:
     def main(self, l1: ListNode, l2: ListNode) -> ListNode:
-        (current_node, has_carry) = self.sum(l1, l2, False)
-        first_node = current_node
+        dummy_node = current = ListNode(0)
+        carry = 0
 
-        while l1.next is not None:
-            l1 = l1.next
-            l2 = l2.next
-            previous_node = current_node
-            (current_node, has_carry) = self.sum(l1, l2, has_carry)
-            previous_node.next = current_node
+        while l1 is not None or l2 is not None:
+            value1 = l1.value if l1 is not None else 0
+            value2 = l2.value if l2 is not None else 0
+            sum = value1 + value2 + carry
+            carry = 1 if sum >= 10 else 0
+            current.next = ListNode(sum - 10 if sum >= 10 else sum)
+            current = current.next
+            l1 = l1.next if l1 is not None else None
+            l2 = l2.next if l2 is not None else None
 
-        return first_node
-
-    def sum(self, l1: ListNode, l2: ListNode,
-            previous_digit_has_carry: bool) -> (ListNode, bool):
-        result = l1.value + l2.value + int(previous_digit_has_carry)
-        has_carray = result >= 10
-        if has_carray:
-            return (ListNode(result - 10), has_carray)
-        return (ListNode(result), has_carray)
+        return dummy_node.next
