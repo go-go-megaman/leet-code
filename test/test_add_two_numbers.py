@@ -25,6 +25,17 @@ class TestMainMethod(unittest.TestCase):
         expected = [7, 6, 4]
         self.assertListEqual(actual, expected)
 
+    def test_when_sum_get_extra_carry_at_the_end(self):
+        target = Solution()
+        test_node1 = self.createTestNode([0, 9])
+        test_node2 = self.createTestNode([0, 1])
+
+        result = target.main(test_node1, test_node2)
+        actual = result.toList()
+
+        expected = [0, 0, 1]
+        self.assertListEqual(actual, expected)
+
     def createTestNode(self, numberList: [int]) -> ListNode:
         first = current = ListNode(numberList[0])
         for number in numberList[1:]:
