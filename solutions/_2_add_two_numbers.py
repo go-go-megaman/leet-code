@@ -21,8 +21,8 @@ class Solution:
             value1 = l1.value if l1 is not None else 0
             value2 = l2.value if l2 is not None else 0
             sum = value1 + value2 + carry
-            carry = 1 if sum >= 10 else 0
-            current.next = ListNode(sum - 10 if sum >= 10 else sum)
+            (carry, current.next) = (1, ListNode(sum - 10)
+                                     ) if sum >= 10 else (0, ListNode(sum))
             current = current.next
             l1 = l1.next if l1 is not None else None
             l2 = l2.next if l2 is not None else None
